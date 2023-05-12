@@ -114,7 +114,7 @@ app.post('/places', (req,res) => {
     const {
         title, address, addedPhotos,
         description, perks, extraInfo,
-        checkIn, checkOut, maxGuests,
+        checkIn, checkOut, maxGuests, price,
     } = req.body
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
         if(err) throw err
@@ -122,7 +122,7 @@ app.post('/places', (req,res) => {
             owner:userData.id,
             title, address, photos:addedPhotos,
             description, perks, extraInfo,
-            checkIn, checkOut, maxGuests,
+            checkIn, checkOut, maxGuests, price,
         })
         res.json(placeDoc)
     })
@@ -146,7 +146,7 @@ app.put('/places', async (req, res) => {
     const {
         id, title, address, addedPhotos,
         description, perks, extraInfo,
-        checkIn, checkOut, maxGuests,
+        checkIn, checkOut, maxGuests, price,
     } = req.body
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
         if(err) throw err
@@ -155,7 +155,7 @@ app.put('/places', async (req, res) => {
             placeDoc.set({
                 title, address, photos:addedPhotos,
                 description, perks, extraInfo,
-                checkIn, checkOut, maxGuests,
+                checkIn, checkOut, maxGuests, price,
             })
             await placeDoc.save()
             res.json('ok')

@@ -17,6 +17,8 @@ export default function PlacesFormPage() {
     const [checkOut, setCheckOut] = useState('')
     const [maxGuests, setMaxGuests] = useState(1)
     const [redirect, setRedirect] = useState(false)
+    const [price, setPrice] = useState(1000)
+
     useEffect(() => {
         if(!id) {
             return
@@ -32,6 +34,7 @@ export default function PlacesFormPage() {
             setCheckIn(data.checkIn)
             setCheckOut(data.checkOut)
             setMaxGuests(data.maxGuests)
+            setPrice(data.price)
         })
     }, [id])
 
@@ -46,7 +49,7 @@ export default function PlacesFormPage() {
         const placeData = {
             title, address, description, 
             perks, extraInfo, checkIn, 
-            checkOut, addedPhotos, maxGuests
+            checkOut, addedPhotos, maxGuests, price,
         }
         if(id) {
             // update place
@@ -84,7 +87,7 @@ export default function PlacesFormPage() {
                         {inputHeader('Extra info')}
                         <textarea value={extraInfo} onChange={e => setExtraInfo(e.target.value)} />
                         {inputHeader('Check in & out timings')}
-                        <div className="grid gap-2 sm:grid-cols-3">
+                        <div className="grid gap-2 grid-cols-2 md:grid-cols-4">
                             <div>
                                 <h3 className="mt-2 -mb-1">Check In time</h3>
                                 <input type="text" 
@@ -104,6 +107,12 @@ export default function PlacesFormPage() {
                                 <input type="number" 
                                         value={maxGuests} 
                                         onChange={e => setMaxGuests(e.target.value)} />
+                            </div>
+                            <div>
+                                <h3 className="mt-2 -mb-1">Price per night</h3>
+                                <input type="number" 
+                                        value={price} 
+                                        onChange={e => setPrice(e.target.value)} />
                             </div>
                         </div>
                         <button className="primary my-4" type="submit">Save</button>
