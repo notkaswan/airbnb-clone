@@ -15,7 +15,7 @@ export default function PlacePage() {
     }, [id])
   return (
     <div>
-        place page: {id}
+        place page id: {id}
     </div>
   )
 }
