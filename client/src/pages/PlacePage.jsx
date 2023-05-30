@@ -15,7 +15,7 @@ export default function PlacePage() {
     }, [id])
     
     if(!place) return '';
-f
+
   return (
     <div className="mt-8">
       <h1>{place.title}</h1>
