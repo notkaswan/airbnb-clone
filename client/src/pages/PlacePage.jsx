@@ -9,13 +9,16 @@ export default function PlacePage() {
       if(!id) {
         return
       }
-      axios.get(`/place/${id}`).then(response => {
+      axios.get(`/places/${id}`).then(response => {
         setPlace(response.data)
       })
     }, [id])
+    
+    if(!place) return '';
+f
   return (
-    <div>
-        place page id: {id}
+    <div className="mt-8">
+      <h1>{place.title}</h1>
     </div>
   )
 }
