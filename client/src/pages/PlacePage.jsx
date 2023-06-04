@@ -90,7 +90,9 @@ export default function PlacePage() {
         <div>
           <BookingWidget place={place} />
         </div>
+        
       </div>
+      <div className="my-4 text-sm text-gray-700 leading-4">{place.extraInfo}</div>
     </div>
   )
 }
