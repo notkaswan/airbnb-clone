@@ -23,6 +23,7 @@ app.use(
   cors({
     credentials: true,
     // origin: [BASE_URL, "https://rent-a-place-r1xa.onrender.com"],
+    "Access-Control-Allow-Origin": "*",
   })
 );
 
