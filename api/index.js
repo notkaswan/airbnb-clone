@@ -21,9 +21,9 @@ app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(
   cors({
-    credentials: true,
+    // credentials: true,
     // origin: [BASE_URL, "https://rent-a-place-r1xa.onrender.com"],
-    "Access-Control-Allow-Origin": "*",
+    // "Access-Control-Allow-Origin": "*",
   })
 );
 
