@@ -22,7 +22,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(
   cors({
     credentials: true,
-    origin: [BASE_URL, "https://rent-a-place-r1xa.onrender.com"],
+    // origin: [BASE_URL, "https://rent-a-place-r1xa.onrender.com"],
   })
 );
 
